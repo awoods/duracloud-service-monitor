@@ -72,7 +72,7 @@ class ServiceMonitor
 
   def is_running?(status)
     unless status.nil?
-      return status == "RUNNING" || status == "STARTING" || status == "COMPLETED"
+      return status == "RUNNING" || status == "STARTING"
     end
   end
 
