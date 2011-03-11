@@ -23,7 +23,7 @@ class Notifier
     msg << "and has been running for #{uptime} hours!"
 
     @log.warn msg
-    system(%Q{echo #{msg}  mail -s "DuraCloud Service Alert" #{@emails.join(" ")}})
+    system(%Q{echo #{msg} | mail -s "DuraCloud Service Alert" #{@emails.join(" ")}})
   end
 end
 
