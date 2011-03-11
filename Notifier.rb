@@ -1,9 +1,12 @@
 #! /usr/bin/ruby
 
+require 'logger'
+
 class Notifier
 
   def initialize(emails)
     @emails = emails
+    @log = get_logger
   end
 
   def get_logger
