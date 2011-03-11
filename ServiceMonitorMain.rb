@@ -1,16 +1,18 @@
 #! /usr/bin/ruby
 
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
+
 require 'date'
 require 'yaml'
 require 'logger'
 require 'ServiceMonitor'
 
 def get_logger
-  log_dir = "logs"
+  log_dir = "#{File.expand_path(File.dirname(__FILE__))}/logs"
   unless File::directory?(log_dir)
     Dir.mkdir(log_dir)
   end
-  Logger.new("#{log_dir}/#{$0}.log", 10, 512000)
+  Logger.new("#{log_dir}/#{File.basename($0)}.log", 10, 512000)
 end
 
 def do_monitor(hosts, auths, notifier)
